@@ -152,8 +152,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d11248d8101bc32449ff1a5ae42e1179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHP: 9
-  playerHP: 9
+  multiplayer: 1
+  player1Actions:
+  - 
+  - 
+  - 
+  player2Actions:
+  - 
+  - 
+  - 
+  playerActionsIndexForChoosing: 0
+  player1ActionsChosen: 000000
+  player2ActionsChosen: 000000
+  prohibitedActionsPlayer1:
+  - 
+  - 
+  - 
+  prohibitedActionsPlayer2:
+  - 
+  - 
+  - 
+  allActionsPerformed: 0
+  roundWinner: 
+  roundIsPlaying: 0
+  roundsPlayed: 000000
+  player2HP: 9
+  player1HP: 9
+  animtimer: 1.5
 --- !u!4 &275283147
 Transform:
   m_ObjectHideFlags: 0
