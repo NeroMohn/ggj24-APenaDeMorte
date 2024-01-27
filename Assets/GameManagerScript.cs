@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-    private string[] playerActions = new string[3];
-    private string[] enemyActions = new string[3];
-    private Dictionary<int, string> actionsDictionary = new Dictionary<int, string>();
+    public string[] playerActions = new string[3];
+    public string[] enemyActions = new string[3];
+    public Dictionary<int, string> actionsDictionary = new Dictionary<int, string>();
     private int firstEnemyAction;
     private int secondEnemyAction;
     private int thirdEnemyAction;
-    private int playerActionsIndexForChoosing = 0;
-    private bool[] playerActionsChosen = new bool[3];
-    private string[] prohibitedActions = new string[3];
-    private bool roundEnd = false;
-    private string roundWinner; //"PLAYER", "ENEMY" ou "DRAW"
+    public int playerActionsIndexForChoosing = 0;
+    public bool[] playerActionsChosen = new bool[3];
+    public string[] prohibitedActions = new string[3];
+    public bool roundEnd = false;
+    public string roundWinner; //"PLAYER", "ENEMY" ou "DRAW"
+    public bool roundIsPlaying = false;
+    public bool[] roundsPlayed = new bool[3];
     [SerializeField]private int enemyHP = 9;
     [SerializeField]private int playerHP = 9;
+    public float animtimer = 1.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,39 +32,67 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerActionsIndexForChoosing == 0){
+        if(!roundIsPlaying){
+            GameLoop();
+        }
+
+        else if(roundIsPlaying){
+            PlayAnim();
+        }
+
+    }
+
+    void GameLoop(){
+        if(playerActionsIndexForChoosing == 0 && !roundIsPlaying){
             if(PlayerChooseActions()){
                 playerActionsChosen[0] = true;
             }
             
         }
-        else if(Input.GetKeyDown("space") && playerActionsChosen[0]){
-            CheckWhoWins(playerActionsIndexForChoosing);
-            playerActionsIndexForChoosing++;
+        if(!roundsPlayed[0] && Input.GetKeyDown("space") && playerActionsChosen[0] && !playerActionsChosen[1] && !playerActionsChosen[2] && !roundIsPlaying){
+            prohibitedActions[0] = playerActions[0];
+            playerActionsIndexForChoosing ++;
+            CheckWhoWins(0);
+            roundsPlayed[0] = true;
+            roundIsPlaying = true;
+            
+            
         }
-        else if(playerActionsIndexForChoosing == 1){
+        if(playerActionsIndexForChoosing == 1 && !roundIsPlaying){
             if(PlayerChooseActions()){
                 playerActionsChosen[1] = true;
             }
         }
-        else if(Input.GetKeyDown("space") && playerActionsChosen[1]){
-            CheckWhoWins(playerActionsIndexForChoosing);
-            playerActionsIndexForChoosing++;
+        if(!roundsPlayed[1] && Input.GetKeyDown("space") && playerActionsChosen[1] && !playerActionsChosen[2] && !roundIsPlaying){
+            prohibitedActions[1] = playerActions[1];
+            playerActionsIndexForChoosing ++;
+            CheckWhoWins(1);
+            roundsPlayed[1] = true;
+            roundIsPlaying = true;
+            
+            
         }
-        else if(playerActionsIndexForChoosing == 2){
+        if(playerActionsIndexForChoosing == 2 && !roundIsPlaying){
             if(PlayerChooseActions()){
                 playerActionsChosen[2] = true;
             }
         }
-        else if(Input.GetKeyDown("space") && playerActionsChosen[2]){
+        if(!roundsPlayed[2] && Input.GetKeyDown("space") && playerActionsChosen[2] && !roundIsPlaying){
+            prohibitedActions[2] = playerActions[2];
+            playerActionsIndexForChoosing ++;
             CheckWhoWins(2);
+            roundsPlayed[2] = true;
+            roundIsPlaying = true;
+            
             roundEnd = true;
         }
-        else if(roundEnd){
+        if(roundEnd && !roundIsPlaying){
             for( int i =0; i<3; i++){
                 playerActionsChosen[i] =  false;
                 playerActions[i] = "";
                 enemyActions[i] = "";
+                prohibitedActions[i] = "";
+                roundsPlayed[i] = false;
             }
             firstEnemyAction =-1;
             secondEnemyAction =-1;
@@ -70,9 +101,6 @@ public class GameManagerScript : MonoBehaviour
             playerActionsIndexForChoosing = 0;
             roundEnd = false;
         }
-
-
-
     }
 
     void EnemyActionRandomizer(){
@@ -108,9 +136,9 @@ public class GameManagerScript : MonoBehaviour
                     }
             }
             playerActions[playerActionsIndexForChoosing] = "ATTACK";
-            prohibitedActions[playerActionsIndexForChoosing] = "ATTACK";
+            //prohibitedActions[playerActionsIndexForChoosing] = "ATTACK";
             Debug.Log("AÇÃO ESCOLHIDA: ATAQUE");
-            playerActionsIndexForChoosing ++;
+            //playerActionsIndexForChoosing ++;
             return true;
         }
         else if(Input.GetKeyDown("2")){
@@ -121,9 +149,9 @@ public class GameManagerScript : MonoBehaviour
                     }
             }
             playerActions[playerActionsIndexForChoosing] = "DEFEND";
-            prohibitedActions[playerActionsIndexForChoosing] = "DEFEND";
+            //prohibitedActions[playerActionsIndexForChoosing] = "DEFEND";
             Debug.Log("AÇÃO ESCOLHIDA: DEFESA");
-            playerActionsIndexForChoosing ++;
+            //playerActionsIndexForChoosing ++;
             return  true;
         }
         else if(Input.GetKeyDown("3")){
@@ -134,20 +162,22 @@ public class GameManagerScript : MonoBehaviour
                     }
             }
             playerActions[playerActionsIndexForChoosing] = "FEINT";
-            prohibitedActions[playerActionsIndexForChoosing] = "FEINT";
+            //prohibitedActions[playerActionsIndexForChoosing] = "FEINT";
             Debug.Log("AÇÃO ESCOLHIDA: FINTA");
-            playerActionsIndexForChoosing ++;
+            //playerActionsIndexForChoosing ++;
             return true;
         }
         return false;
     }
 
     void CheckWhoWins(int actionsIndex){
+        Debug.Log(actionsIndex);
         string playerAction = playerActions[actionsIndex];
         string enemyAction = enemyActions[actionsIndex];
         switch (playerAction)
         {
             case "ATTACK":
+            
             switch (enemyAction)
             {
                 case "ATTACK":
@@ -205,5 +235,16 @@ public class GameManagerScript : MonoBehaviour
             break;
 
         }
+
+        Debug.Log(roundWinner);
     }  
+
+    void PlayAnim(){
+        if(animtimer <= 0){
+            roundIsPlaying = false;
+            animtimer = 1.5f;
+            return;
+        }
+        animtimer-= Time.deltaTime;
+    }
 }
