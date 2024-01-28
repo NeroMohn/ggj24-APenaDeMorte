@@ -28,8 +28,10 @@ public class GameManagerScript : MonoBehaviour
 	[SerializeField]private int player1HP = 5;
 	public float animtimer = 1.5f;
 
-	// Start is called before the first frame update
-	void Start()
+    private FMODSFX _sfxHandler = new FMODSFX();
+
+    // Start is called before the first frame update
+    void Start()
 	{
 		if (!GameObject.Find("Gambiarra"))
 			multiplayer = true;
@@ -369,18 +371,21 @@ public class GameManagerScript : MonoBehaviour
 				case "ATTACK":
 				roundWinner = "DRAW";
 				animationToBePlayed = "Attack vs Attack";
+				_sfxHandler.PlayDraw();
 				break;
 
 				case "DEFEND":
 				roundWinner = "PLAYER 2";
 				player1HP--;
+				_sfxHandler.PlayAttack();
 				animationToBePlayed = "Attack vs Block";
 				break;
 
 				case "FEINT":
 				roundWinner = "PLAYER 1";
 				player2HP--;
-				animationToBePlayed = "Attack vs Fender";
+                _sfxHandler.PlayAttack();
+                animationToBePlayed = "Attack vs Fender";
 				break;
 			}
 			break;
@@ -392,19 +397,22 @@ public class GameManagerScript : MonoBehaviour
 				roundWinner = "PLAYER 1";
 				player2HP--;
 				animationToBePlayed = "Block vs Attack";
+				_sfxHandler.PlayAttack();
 				break;
 
 				case "DEFEND":
 				roundWinner = "DRAW";
 				animationToBePlayed = "Block vs Block";
-				break;
+                _sfxHandler.PlayDraw();
+                break;
 
 				case "FEINT":
 				roundWinner = "PLAYER 2";
 				player1HP--;
 				animationToBePlayed = "Block vs Fender";
+				_sfxHandler.PlayAttack();
 				break;
-			}
+                }
 			break;
 
 			case "FEINT":
@@ -414,19 +422,22 @@ public class GameManagerScript : MonoBehaviour
 				roundWinner = "PLAYER 2";
 				player1HP--;
 				animationToBePlayed = "Fender vs Attack";
+				_sfxHandler.PlayAttack();
 				break;
 
-				case "DEFEND":
+                    case "DEFEND":
 				roundWinner = "PLAYER 1";
 				player2HP--;
 				animationToBePlayed = "Fender vs Block";
+				_sfxHandler.PlayAttack();
 				break;
 
-				case "FEINT":
+                    case "FEINT":
 				roundWinner = "DRAW";
 				animationToBePlayed = "Fender vs Fender";
+                _sfxHandler.PlayDraw();
 				break;
-			}
+                }
 			break;
 
 		}
