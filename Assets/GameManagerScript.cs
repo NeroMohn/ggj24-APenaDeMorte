@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
+    public GameObject characters;
+    public Animator charactersAnimator;
+    public string animationToBePlayed = "Idle";
     public bool multiplayer;
     public string[] player1Actions = new string[3];
     public string[] player2Actions = new string[3];
@@ -27,6 +30,8 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        characters = GameObject.Find("Characters");
+        charactersAnimator = characters.GetComponent<Animator>();
         if(!multiplayer){
             actionsDictionary.Add(0, "ATTACK");
             actionsDictionary.Add(1, "DEFEND");
@@ -50,7 +55,7 @@ public class GameManagerScript : MonoBehaviour
             ClearStats();
         }
 
-        else if(roundIsPlaying){
+        if(roundIsPlaying){
             PlayAnim();
         }
 
@@ -318,16 +323,19 @@ public class GameManagerScript : MonoBehaviour
             {
                 case "ATTACK":
                 roundWinner = "DRAW";
+                animationToBePlayed = "Attack vs Attack";
                 break;
 
                 case "DEFEND":
                 roundWinner = "PLAYER 2";
                 player1HP--;
+                animationToBePlayed = "Attack vs Block";
                 break;
 
                 case "FEINT":
                 roundWinner = "PLAYER 1";
                 player2HP--;
+                animationToBePlayed = "Attack vs Fender";
                 break;
             }
             break;
@@ -338,15 +346,18 @@ public class GameManagerScript : MonoBehaviour
                 case "ATTACK":
                 roundWinner = "PLAYER 1";
                 player2HP--;
+                animationToBePlayed = "Block vs Attack";
                 break;
 
                 case "DEFEND":
                 roundWinner = "DRAW";
+                animationToBePlayed = "Block vs Block";
                 break;
 
                 case "FEINT":
                 roundWinner = "PLAYER 2";
                 player1HP--;
+                animationToBePlayed = "Block vs Fender";
                 break;
             }
             break;
@@ -357,15 +368,18 @@ public class GameManagerScript : MonoBehaviour
                 case "ATTACK":
                 roundWinner = "PLAYER 2";
                 player1HP--;
+                animationToBePlayed = "Fender vs Attack";
                 break;
 
                 case "DEFEND":
                 roundWinner = "PLAYER 1";
                 player2HP--;
+                animationToBePlayed = "Fender vs Block";
                 break;
 
                 case "FEINT":
                 roundWinner = "DRAW";
+                animationToBePlayed = "Fender vs Fender";
                 break;
             }
             break;
@@ -376,11 +390,21 @@ public class GameManagerScript : MonoBehaviour
     }  
 
     void PlayAnim(){
-        if(animtimer <= 0){
+        /*if(animtimer <= 0){
             roundIsPlaying = false;
             animtimer = 1.5f;
             return;
         }
-        animtimer-= Time.deltaTime;
+        animtimer-= Time.deltaTime;*/
+        charactersAnimator.Play(animationToBePlayed);
+        //Debug.Log(charactersAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        if (charactersAnimator.GetCurrentAnimatorStateInfo(0).IsName(animationToBePlayed) && charactersAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1){
+                roundIsPlaying = false;
+                animationToBePlayed = "Idle";
+                charactersAnimator.Play(animationToBePlayed);
+            }
+
     }
+
+    
 }
