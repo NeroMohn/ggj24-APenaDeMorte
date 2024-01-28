@@ -84,12 +84,13 @@ public class GameManagerScript : MonoBehaviour
 			endingTimer -= Time.deltaTime;
 			return;
 		}
-		else if(player2HP <=0 && !laughIsPlaying){
-			if(endingTimer <= 0){
+		else if(player2HP <=0){
+			if(endingTimer <= 0 && !laughIsPlaying){
 				_sfxHandler.PlayMaleLaught();
 				laughIsPlaying = true;
 			}
 			endingTimer -= Time.deltaTime;
+			return;
 		}
 		if(playerActionsIndexForChoosing == 0 && !roundIsPlaying){
 			//Debug.Log("INICIANDO ROUND 1");
@@ -179,12 +180,13 @@ public class GameManagerScript : MonoBehaviour
 			endingTimer -= Time.deltaTime;
 			return;
 		}
-		else if(player2HP <=0 && !laughIsPlaying){
-			if(endingTimer <= 0){
+		else if(player2HP <=0){
+			if(endingTimer <= 0 && !laughIsPlaying){
 				_sfxHandler.PlayMaleLaught();
 				laughIsPlaying = true;
 			}
 			endingTimer -= Time.deltaTime;
+			return;
 		}
 		if(playerActionsIndexForChoosing == 0 && !roundIsPlaying){
 			//Debug.Log("INICIANDO ROUND 1");
