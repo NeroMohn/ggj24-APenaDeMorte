@@ -7,6 +7,6 @@ public class StartBattle : MonoBehaviour
 {
 	void Start()
 	{
-		SceneManager.LoadScene("temp", LoadSceneMode.Additive);
+		SceneManager.LoadScene("BattleScene", LoadSceneMode.Additive);
 	}
 }

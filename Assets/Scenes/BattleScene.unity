@@ -179,8 +179,8 @@ MonoBehaviour:
   roundWinner: 
   roundIsPlaying: 0
   roundsPlayed: 000000
-  player2HP: 9
-  player1HP: 9
+  player2HP: 5
+  player1HP: 5
   animtimer: 1.5
 --- !u!4 &275283147
 Transform:
