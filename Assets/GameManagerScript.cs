@@ -26,7 +26,9 @@ public class GameManagerScript : MonoBehaviour
 	public bool[] roundsPlayed = new bool[3];
 	[SerializeField]private int player2HP = 5;
 	[SerializeField]private int player1HP = 5;
-	public float animtimer = 1.5f;
+	public float tickleTimer = 1.5f;
+	public float endingTimer = 2.5f;
+	public bool tickleSoundIsPlaying = false;
 
     private FMODSFX _sfxHandler = new FMODSFX();
 
@@ -77,6 +79,7 @@ public class GameManagerScript : MonoBehaviour
 			//Debug.Log("INICIANDO ROUND 1");
 			if(!player1ActionsChosen[0]){
 				if(Player1ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
 				player1ActionsChosen[0] = true;
 				}
 			}
@@ -96,6 +99,7 @@ public class GameManagerScript : MonoBehaviour
 			//Debug.Log("INICIANDO ROUND 2");
 			if(!player1ActionsChosen[1]){
 				if(Player1ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
 				player1ActionsChosen[1] = true;
 				}
 			}
@@ -114,6 +118,7 @@ public class GameManagerScript : MonoBehaviour
 			//Debug.Log("INICIANDO ROUND 3");
 			if(!player1ActionsChosen[2]){
 				if(Player1ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
 				player1ActionsChosen[2] = true;
 				}
 			}
@@ -146,18 +151,35 @@ public class GameManagerScript : MonoBehaviour
 	}
 
 	void GameLoopMultiplayer(){
-		if (player2HP <= 0 || player1HP <= 0)
+		/*if (player2HP <= 0 || player1HP <= 0){
+			
 			return;
+		}*/
+		if(player1HP <=0){
+			if(endingTimer <= 0){
+				_sfxHandler.PlayMaleLaught();
+			}
+			endingTimer -= Time.deltaTime;
+			return;
+		}
+		else if(player2HP <=0){
+			if(endingTimer <= 0){
+				_sfxHandler.PlayFemaleLaugh();
+			}
+			endingTimer -= Time.deltaTime;
+		}
 		if(playerActionsIndexForChoosing == 0 && !roundIsPlaying){
 			//Debug.Log("INICIANDO ROUND 1");
 			if(!player1ActionsChosen[0]){
 				if(Player1ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
 				player1ActionsChosen[0] = true;
 				}
 			}
 
 			if(!player2ActionsChosen[0]){
 				if(Player2ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
 				player2ActionsChosen[0] = true;
 				}
 			}
@@ -178,12 +200,14 @@ public class GameManagerScript : MonoBehaviour
 			//Debug.Log("INICIANDO ROUND 2");
 			if(!player1ActionsChosen[1]){
 				if(Player1ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
 				player1ActionsChosen[1] = true;
 				}
 			}
 			
 			if(!player2ActionsChosen[1]){
 				if(Player2ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
 				player2ActionsChosen[1] = true;
 				}
 			}
@@ -203,12 +227,14 @@ public class GameManagerScript : MonoBehaviour
 			//Debug.Log("INICIANDO ROUND 3");
 			if(!player1ActionsChosen[2]){
 				if(Player1ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
 				player1ActionsChosen[2] = true;
 				}
 			}
 			
 			if(!player2ActionsChosen[2]){
 				if(Player2ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
 				player2ActionsChosen[2] = true;
 				}
 			}
@@ -377,14 +403,14 @@ public class GameManagerScript : MonoBehaviour
 				case "DEFEND":
 				roundWinner = "PLAYER 2";
 				player1HP--;
-				_sfxHandler.PlayAttack();
+				//_sfxHandler.PlayAttack();
 				animationToBePlayed = "Attack vs Block";
 				break;
 
 				case "FEINT":
 				roundWinner = "PLAYER 1";
 				player2HP--;
-                _sfxHandler.PlayAttack();
+                //_sfxHandler.PlayAttack();
                 animationToBePlayed = "Attack vs Fender";
 				break;
 			}
@@ -397,7 +423,7 @@ public class GameManagerScript : MonoBehaviour
 				roundWinner = "PLAYER 1";
 				player2HP--;
 				animationToBePlayed = "Block vs Attack";
-				_sfxHandler.PlayAttack();
+				//_sfxHandler.PlayAttack();
 				break;
 
 				case "DEFEND":
@@ -410,7 +436,7 @@ public class GameManagerScript : MonoBehaviour
 				roundWinner = "PLAYER 2";
 				player1HP--;
 				animationToBePlayed = "Block vs Fender";
-				_sfxHandler.PlayAttack();
+				//_sfxHandler.PlayAttack();
 				break;
                 }
 			break;
@@ -422,20 +448,20 @@ public class GameManagerScript : MonoBehaviour
 				roundWinner = "PLAYER 2";
 				player1HP--;
 				animationToBePlayed = "Fender vs Attack";
-				_sfxHandler.PlayAttack();
+				//_sfxHandler.PlayAttack();
 				break;
 
                     case "DEFEND":
 				roundWinner = "PLAYER 1";
 				player2HP--;
 				animationToBePlayed = "Fender vs Block";
-				_sfxHandler.PlayAttack();
+				//_sfxHandler.PlayAttack();
 				break;
 
                     case "FEINT":
 				roundWinner = "DRAW";
 				animationToBePlayed = "Fender vs Fender";
-                _sfxHandler.PlayDraw();
+                //_sfxHandler.PlayDraw();
 				break;
                 }
 			break;
@@ -452,6 +478,11 @@ public class GameManagerScript : MonoBehaviour
 			return;
 		}
 		animtimer-= Time.deltaTime;*/
+		if(tickleTimer <=0 && roundWinner != "DRAW" && !tickleSoundIsPlaying){
+			_sfxHandler.PlayAttack();
+			tickleSoundIsPlaying = true;
+		}
+		tickleTimer -= Time.deltaTime;
 		charactersAnimator.Play(animationToBePlayed);
 		//Debug.Log(charactersAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
 		if (charactersAnimator.GetCurrentAnimatorStateInfo(0).IsName(animationToBePlayed) && charactersAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1){
@@ -459,6 +490,8 @@ public class GameManagerScript : MonoBehaviour
 			roundIsPlaying = false;
 			animationToBePlayed = "Idle";
 			charactersAnimator.Play(animationToBePlayed);
+			tickleTimer = 1.5f;
+			tickleSoundIsPlaying = false;
 			}
 
 	}
