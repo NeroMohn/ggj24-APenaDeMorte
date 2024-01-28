@@ -30,6 +30,7 @@ public class GameManagerScript : MonoBehaviour
 	public bool[] roundsPlayed = new bool[3];
 	[SerializeField]private int player2HP = 5;
 	[SerializeField]private int player1HP = 5;
+
 	public float animtimer = 1.5f;
 	private bool gameOverFlag = false;
 	private GameObject bluehp;
@@ -60,9 +61,15 @@ public class GameManagerScript : MonoBehaviour
 	private bool p2atk;
 	private bool p2def;
 	private bool p2fei;
+	public float tickleTimer = 1.5f;
+	private float endingTimer = 0.5f;
+	public bool tickleSoundIsPlaying = false;
+	public bool laughIsPlaying = false;
 
-	// Start is called before the first frame update
-	void Start()
+    private FMODSFX _sfxHandler = new FMODSFX();
+
+    // Start is called before the first frame update
+    void Start()
 	{
 		DontDestroyOnLoad(GameObject.Find("Canvas"));
 		bluehp  = GameObject.Find("BlueHP");
@@ -95,102 +102,25 @@ public class GameManagerScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if(!roundIsPlaying && !multiplayer){
-			GameLoopSinglePlayer();
-		}
-		else if(!roundIsPlaying && multiplayer){
-			GameLoopMultiplayer();
-		}
-
-		if(allActionsPerformed){
-			ClearStats();
-		}
-
-		if(roundIsPlaying){
-			PlayAnim();
-		}
-
-	}
-
-	void GameLoopSinglePlayer(){
-		if(playerActionsIndexForChoosing == 0 && !roundIsPlaying){
-			//Debug.Log("INICIANDO ROUND 1");
-			if(!player1ActionsChosen[0]){
-				if(Player1ChooseActions()){
-				player1ActionsChosen[0] = true;
-				}
-			}
-			
-			
-		}
-		if(!roundsPlayed[0]  && player1ActionsChosen[0] && playerActionsIndexForChoosing == 0){
-			prohibitedActionsPlayer1[0] = player1Actions[0];
-			playerActionsIndexForChoosing ++;
-			CheckWhoWins(0);
-			roundsPlayed[0] = true;
-			roundIsPlaying = true;
-			
-			
-		}
-		if(playerActionsIndexForChoosing == 1 && !roundIsPlaying){
-			//Debug.Log("INICIANDO ROUND 2");
-			if(!player1ActionsChosen[1]){
-				if(Player1ChooseActions()){
-				player1ActionsChosen[1] = true;
-				}
-			}
-			
-		}
-		if(!roundsPlayed[1] && player1ActionsChosen[1] && playerActionsIndexForChoosing == 1){
-			prohibitedActionsPlayer1[1] = player1Actions[1];
-			playerActionsIndexForChoosing ++;
-			CheckWhoWins(1);
-			roundsPlayed[1] = true;
-			roundIsPlaying = true;
-			
-			
-		}
-		if(playerActionsIndexForChoosing == 2 && !roundIsPlaying){
-			//Debug.Log("INICIANDO ROUND 3");
-			if(!player1ActionsChosen[2]){
-				if(Player1ChooseActions()){
-				player1ActionsChosen[2] = true;
-				}
-			}
-			
-		}
-		if(!roundsPlayed[2]  && player1ActionsChosen[2]){
-			prohibitedActionsPlayer1[2] = player1Actions[2];
-			playerActionsIndexForChoosing ++;
-			CheckWhoWins(2);
-			roundsPlayed[2] = true;
-			roundIsPlaying = true;
-			
-			allActionsPerformed = true;
-		}
-		if(allActionsPerformed){
-			for( int i =0; i<3; i++){
-				player1ActionsChosen[i] =  false;
-				player1Actions[i] = "";
-				player2Actions[i] = "";
-				prohibitedActionsPlayer1[i] = "";
-				roundsPlayed[i] = false;
-			}
-			firstEnemyAction =-1;
-			secondEnemyAction =-1;
-			thirdEnemyAction =-1;
-			EnemyActionRandomizer();
-			playerActionsIndexForChoosing = 0;
-			allActionsPerformed = false;
-		}
-	}
-
-	void GameLoopMultiplayer(){
 		if (player2HP <= 0 || player1HP <= 0)
 		{
 			if (!gameOverFlag)
 				SceneManager.LoadScene("TitleScene");//"Rematch", LoadSceneMode.Additive);
 			gameOverFlag = true;
+			if(player1HP <=0){
+				if(endingTimer <= 0 && !laughIsPlaying){
+					_sfxHandler.PlayFemaleLaugh();
+					laughIsPlaying = true;
+				}
+				endingTimer -= Time.deltaTime;
+			}
+			else if(player2HP <=0){
+				if(endingTimer <= 0 && !laughIsPlaying){
+					_sfxHandler.PlayMaleLaught();
+					laughIsPlaying = true;
+				}
+				endingTimer -= Time.deltaTime;
+			}
 			return;
 		}
 		switch (player1HP)
@@ -239,16 +169,113 @@ public class GameManagerScript : MonoBehaviour
 		reddef.GetComponent<Image>().color  = p2def ? enb : dis;
 		redfei.GetComponent<Image>().color  = p2fei ? enb : dis;
 
+		if(!roundIsPlaying && !multiplayer){
+			GameLoopSinglePlayer();
+		}
+		else if(!roundIsPlaying && multiplayer){
+			GameLoopMultiplayer();
+		}
+
+		if(allActionsPerformed){
+			ClearStats();
+		}
+
+		if(roundIsPlaying){
+			PlayAnim();
+		}
+
+	}
+
+	void GameLoopSinglePlayer(){
+
 		if(playerActionsIndexForChoosing == 0 && !roundIsPlaying){
 			//Debug.Log("INICIANDO ROUND 1");
 			if(!player1ActionsChosen[0]){
 				if(Player1ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
+				player1ActionsChosen[0] = true;
+				}
+			}
+			
+			
+		}
+		if(!roundsPlayed[0]  && player1ActionsChosen[0] && playerActionsIndexForChoosing == 0){
+			prohibitedActionsPlayer1[0] = player1Actions[0];
+			playerActionsIndexForChoosing ++;
+			CheckWhoWins(0);
+			roundsPlayed[0] = true;
+			roundIsPlaying = true;
+			
+			
+		}
+		if(playerActionsIndexForChoosing == 1 && !roundIsPlaying){
+			//Debug.Log("INICIANDO ROUND 2");
+			if(!player1ActionsChosen[1]){
+				if(Player1ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
+				player1ActionsChosen[1] = true;
+				}
+			}
+			
+		}
+		if(!roundsPlayed[1] && player1ActionsChosen[1] && playerActionsIndexForChoosing == 1){
+			prohibitedActionsPlayer1[1] = player1Actions[1];
+			playerActionsIndexForChoosing ++;
+			CheckWhoWins(1);
+			roundsPlayed[1] = true;
+			roundIsPlaying = true;
+			
+			
+		}
+		if(playerActionsIndexForChoosing == 2 && !roundIsPlaying){
+			//Debug.Log("INICIANDO ROUND 3");
+			if(!player1ActionsChosen[2]){
+				if(Player1ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
+				player1ActionsChosen[2] = true;
+				}
+			}
+			
+		}
+		if(!roundsPlayed[2]  && player1ActionsChosen[2]){
+			prohibitedActionsPlayer1[2] = player1Actions[2];
+			playerActionsIndexForChoosing ++;
+			CheckWhoWins(2);
+			roundsPlayed[2] = true;
+			roundIsPlaying = true;
+			
+			allActionsPerformed = true;
+		}
+		if(allActionsPerformed){
+			for( int i =0; i<3; i++){
+				player1ActionsChosen[i] =  false;
+				player1Actions[i] = "";
+				player2Actions[i] = "";
+				prohibitedActionsPlayer1[i] = "";
+				roundsPlayed[i] = false;
+			}
+			firstEnemyAction =-1;
+			secondEnemyAction =-1;
+			thirdEnemyAction =-1;
+			EnemyActionRandomizer();
+			playerActionsIndexForChoosing = 0;
+			allActionsPerformed = false;
+		}
+	}
+
+	void GameLoopMultiplayer(){
+		if(playerActionsIndexForChoosing == 0 && !roundIsPlaying){
+			//Debug.Log("INICIANDO ROUND 1");
+			if(!player1ActionsChosen[0]){
+				if(Player1ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
 				player1ActionsChosen[0] = true;
 				}
 			}
 
 			if(!player2ActionsChosen[0]){
 				if(Player2ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
 				player2ActionsChosen[0] = true;
 				}
 			}
@@ -269,12 +296,14 @@ public class GameManagerScript : MonoBehaviour
 			//Debug.Log("INICIANDO ROUND 2");
 			if(!player1ActionsChosen[1]){
 				if(Player1ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
 				player1ActionsChosen[1] = true;
 				}
 			}
 			
 			if(!player2ActionsChosen[1]){
 				if(Player2ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
 				player2ActionsChosen[1] = true;
 				}
 			}
@@ -294,12 +323,14 @@ public class GameManagerScript : MonoBehaviour
 			//Debug.Log("INICIANDO ROUND 3");
 			if(!player1ActionsChosen[2]){
 				if(Player1ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
 				player1ActionsChosen[2] = true;
 				}
 			}
 			
 			if(!player2ActionsChosen[2]){
 				if(Player2ChooseActions()){
+					_sfxHandler.PlayPlayerChoice();
 				player2ActionsChosen[2] = true;
 				}
 			}
@@ -462,18 +493,21 @@ public class GameManagerScript : MonoBehaviour
 				case "ATTACK":
 				roundWinner = "DRAW";
 				animationToBePlayed = "Attack vs Attack";
+				//_sfxHandler.PlayDraw();
 				break;
 
 				case "DEFEND":
 				roundWinner = "PLAYER 2";
 				player1HP--;
+				//_sfxHandler.PlayAttack();
 				animationToBePlayed = "Attack vs Block";
 				break;
 
 				case "FEINT":
 				roundWinner = "PLAYER 1";
 				player2HP--;
-				animationToBePlayed = "Attack vs Fender";
+                //_sfxHandler.PlayAttack();
+                animationToBePlayed = "Attack vs Fender";
 				break;
 			}
 			break;
@@ -485,19 +519,22 @@ public class GameManagerScript : MonoBehaviour
 				roundWinner = "PLAYER 1";
 				player2HP--;
 				animationToBePlayed = "Block vs Attack";
+				//_sfxHandler.PlayAttack();
 				break;
 
 				case "DEFEND":
 				roundWinner = "DRAW";
 				animationToBePlayed = "Block vs Block";
-				break;
+                //_sfxHandler.PlayDraw();
+                break;
 
 				case "FEINT":
 				roundWinner = "PLAYER 2";
 				player1HP--;
 				animationToBePlayed = "Block vs Fender";
+				//_sfxHandler.PlayAttack();
 				break;
-			}
+                }
 			break;
 
 			case "FEINT":
@@ -507,19 +544,22 @@ public class GameManagerScript : MonoBehaviour
 				roundWinner = "PLAYER 2";
 				player1HP--;
 				animationToBePlayed = "Fender vs Attack";
+				//_sfxHandler.PlayAttack();
 				break;
 
-				case "DEFEND":
+                    case "DEFEND":
 				roundWinner = "PLAYER 1";
 				player2HP--;
 				animationToBePlayed = "Fender vs Block";
+				//_sfxHandler.PlayAttack();
 				break;
 
-				case "FEINT":
+                    case "FEINT":
 				roundWinner = "DRAW";
 				animationToBePlayed = "Fender vs Fender";
+                //_sfxHandler.PlayDraw();
 				break;
-			}
+                }
 			break;
 
 		}
@@ -534,6 +574,17 @@ public class GameManagerScript : MonoBehaviour
 			return;
 		}
 		animtimer-= Time.deltaTime;*/
+		if(tickleTimer <=0 && !tickleSoundIsPlaying){
+			if(roundWinner == "DRAW"){
+				_sfxHandler.PlayDraw();
+			}
+			else{
+				_sfxHandler.PlayAttack();
+			}
+			//_sfxHandler.PlayAttack();
+			tickleSoundIsPlaying = true;
+		}
+		tickleTimer -= Time.deltaTime;
 		charactersAnimator.Play(animationToBePlayed);
 		//Debug.Log(charactersAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
 		if (charactersAnimator.GetCurrentAnimatorStateInfo(0).IsName(animationToBePlayed) && charactersAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1){
@@ -541,6 +592,8 @@ public class GameManagerScript : MonoBehaviour
 			roundIsPlaying = false;
 			animationToBePlayed = "Idle";
 			charactersAnimator.Play(animationToBePlayed);
+			tickleTimer = 1.5f;
+			tickleSoundIsPlaying = false;
 			}
 
 	}

@@ -380,6 +380,10 @@ MonoBehaviour:
   r3: {fileID: 21300000, guid: bc9b8e97760fa6a4380de1c45ee5685e, type: 3}
   r4: {fileID: 21300000, guid: e3749746053f9fc4b87d6bfc6dca2f7b, type: 3}
   r5: {fileID: 21300000, guid: a1a80e5833de9554fb2bcf776239515b, type: 3}
+  tickleTimer: 1.5
+  endingTimer: 1.5
+  tickleSoundIsPlaying: 0
+  laughIsPlaying: 0
 --- !u!4 &275283147
 Transform:
   m_ObjectHideFlags: 0
