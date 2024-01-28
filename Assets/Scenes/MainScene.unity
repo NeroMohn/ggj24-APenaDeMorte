@@ -150,15 +150,15 @@ RectTransform:
   m_GameObject: {fileID: 161146955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 962618584}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 0}
-  m_SizeDelta: {x: 1102, y: 515}
+  m_AnchoredPosition: {x: 400, y: -120}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &161146957
 MonoBehaviour:
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 383a5b1a484ed6c4aa75714a969f7f12, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e19e32e36b8d71045947d7d5b96138c7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -281,7 +281,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 962618588}
-        m_TargetAssemblyTypeName: MainScript, Assembly-CSharp
+        m_TargetAssemblyTypeName: SceneUIControl, Assembly-CSharp
         m_MethodName: toggleLanguage
         m_Mode: 1
         m_Arguments:
@@ -653,9 +653,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 962618583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09ebe7b1b861ea7448a5dd97cdb4c375, type: 3}
+  m_Script: {fileID: 11500000, guid: 8458a388220295947a47502d2d866e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  langButton: {fileID: 720349439}
+  br: {fileID: 21300000, guid: 133ef784d11823147b7c64a5951bac87, type: 3}
+  us: {fileID: 21300000, guid: e9ee39af71138b843bef0202d2113356, type: 3}
+  text01: {fileID: 1659774857}
+  text02: {fileID: 1763070902}
+  pvp: {fileID: 0}
+  pve: {fileID: 0}
+  ext: {fileID: 0}
+  rem: {fileID: 0}
+  giveUp: {fileID: 0}
 --- !u!1 &1359062178
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,17 +691,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359062178}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.2588191, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 962618584}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 1102, y: 515}
+  m_AnchoredPosition: {x: -300, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1359062180
 MonoBehaviour:
@@ -713,7 +723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 16ab936231637ec49b9edcaacaaf5f8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17b4f8c87e2f5e0438596cbed4cfdf05, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -765,7 +775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 0}
+  m_AnchoredPosition: {x: -204, y: 0}
   m_SizeDelta: {x: 551.72, y: 257.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1659774859
@@ -788,11 +798,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula
-    eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant
-    morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla
-    at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam
-    mattis, felis ut adipiscing.
+  m_text: "H\xE1 muito tempo numa terra distante, foi criminalizado o riso. Rir significava
+    execu\xE7\xE3o imediata pelas m\xE3os da justi\xE7a. Entretanto, alguns indiv\xEDduos
+    ainda engajavam em duelos com suas Espadas Pena, um implemento engenhoso que
+    faz seu oponente gargalhar. Essa forma ilegal de duelo era conhecida como a Pena
+    de Morte, e o combatente incapaz de segurar o riso certamente estaria em maus
+    len\xE7\xF3is."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c22007243658eb41af5aaa8c1187745, type: 2}
   m_sharedMaterial: {fileID: -8551486037309461922, guid: 6c22007243658eb41af5aaa8c1187745, type: 2}
@@ -903,8 +914,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: 100}
-  m_SizeDelta: {x: 551.72, y: 257.5}
+  m_AnchoredPosition: {x: 188.66113, y: 72}
+  m_SizeDelta: {x: 640.2037, y: 257.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1763070904
 MonoBehaviour:
@@ -926,11 +937,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula
-    eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant
-    morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla
-    at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam
-    mattis, felis ut adipiscing.
+  m_text: "O jogo \xE9 como pedra, papel, tesoura. Voc\xEA pode atacar, defender,
+    ou fintar. Defesa ganha de ataque, que ganha de finta, que ganha de defesa. Entretanto,
+    cada rodada \xE9 composta de tr\xEAs movimentos, e voc\xEA n\xE3o pode repetir
+    o movimento na rodada! Isso adiciona um pouco de complexidade \xE0 ideia de pedra,
+    papel, tesoura. Navegue pelo menu com o cursor do mouse, e jogue com os bot\xF5es
+    1, 2 e 3 do teclado (o teclado padr\xE3o, n\xE3o as teclas num\xE9ricas). Se
+    houver dois jogadores, o segundo jogador usa as teclas 1, 2 e 3 do teclado num\xE9rico."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c22007243658eb41af5aaa8c1187745, type: 2}
   m_sharedMaterial: {fileID: -8551486037309461922, guid: 6c22007243658eb41af5aaa8c1187745, type: 2}
@@ -1042,8 +1055,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1102, y: 515}
+  m_AnchoredPosition: {x: 0.75, y: 0}
+  m_SizeDelta: {x: 1121.5, y: 612}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1863671458
 MonoBehaviour:
@@ -1065,7 +1078,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bcbb868800dc3954e91d57301e3455d7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8836f390a452b54eaad8751ab80381e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

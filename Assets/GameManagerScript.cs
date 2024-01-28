@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -27,10 +31,48 @@ public class GameManagerScript : MonoBehaviour
 	[SerializeField]private int player2HP = 5;
 	[SerializeField]private int player1HP = 5;
 	public float animtimer = 1.5f;
+	private bool gameOverFlag = false;
+	private GameObject bluehp;
+	private GameObject blueatk;
+	private GameObject bluedef;
+	private GameObject bluefei;
+	private GameObject redhp;
+	private GameObject redatk;
+	private GameObject reddef;
+	private GameObject redfei;
+	private Color enb = new Color(1, 1, 1, 1);
+	private Color dis = new Color(0.5f, 0.5f, 0.5f, 1);
+	public Sprite b0;
+	public Sprite b1;
+	public Sprite b2;
+	public Sprite b3;
+	public Sprite b4;
+	public Sprite b5;
+	public Sprite r0;
+	public Sprite r1;
+	public Sprite r2;
+	public Sprite r3;
+	public Sprite r4;
+	public Sprite r5;
+	private bool p1atk;
+	private bool p1def;
+	private bool p1fei;
+	private bool p2atk;
+	private bool p2def;
+	private bool p2fei;
 
 	// Start is called before the first frame update
 	void Start()
 	{
+		DontDestroyOnLoad(GameObject.Find("Canvas"));
+		bluehp  = GameObject.Find("BlueHP");
+		blueatk = GameObject.Find("BlueAttack");
+		bluedef = GameObject.Find("BlueDefend");
+		bluefei = GameObject.Find("BlueFeint");
+		redhp   = GameObject.Find("RedHP");
+		redatk  = GameObject.Find("RedAttack");
+		reddef  = GameObject.Find("RedDefend");
+		redfei  = GameObject.Find("RedFeint");
 		if (!GameObject.Find("Gambiarra"))
 			multiplayer = true;
 		else
@@ -145,7 +187,58 @@ public class GameManagerScript : MonoBehaviour
 
 	void GameLoopMultiplayer(){
 		if (player2HP <= 0 || player1HP <= 0)
+		{
+			if (!gameOverFlag)
+				SceneManager.LoadScene("TitleScene");//"Rematch", LoadSceneMode.Additive);
+			gameOverFlag = true;
 			return;
+		}
+		switch (player1HP)
+		{
+			case 0:  bluehp.GetComponent<Image>().sprite = b5; break;
+			case 1:  bluehp.GetComponent<Image>().sprite = b4; break;
+			case 2:  bluehp.GetComponent<Image>().sprite = b3; break;
+			case 3:  bluehp.GetComponent<Image>().sprite = b2; break;
+			case 4:  bluehp.GetComponent<Image>().sprite = b1; break;
+			default: bluehp.GetComponent<Image>().sprite = b0; break;
+		}
+		switch (player2HP)
+		{
+			case 0:  redhp.GetComponent<Image>().sprite = r5; break;
+			case 1:  redhp.GetComponent<Image>().sprite = r4; break;
+			case 2:  redhp.GetComponent<Image>().sprite = r3; break;
+			case 3:  redhp.GetComponent<Image>().sprite = r2; break;
+			case 4:  redhp.GetComponent<Image>().sprite = r1; break;
+			default: redhp.GetComponent<Image>().sprite = r0; break;
+		}
+		p1atk = true;
+		p1def = true;
+		p1fei = true;
+		p2atk = true;
+		p2def = true;
+		p2fei = true;
+		for (int i = 0; i < 3; i++)
+		{
+			if (prohibitedActionsPlayer1[i] == "ATTACK")
+				p1atk = false;
+			if (prohibitedActionsPlayer1[i] == "DEFEND")
+				p1def = false;
+			if (prohibitedActionsPlayer1[i] == "FEINT")
+				p1fei = false;
+			if (prohibitedActionsPlayer2[i] == "ATTACK")
+				p2atk = false;
+			if (prohibitedActionsPlayer2[i] == "DEFEND")
+				p2def = false;
+			if (prohibitedActionsPlayer2[i] == "FEINT")
+				p2fei = false;
+		}
+		blueatk.GetComponent<Image>().color = p1atk ? enb : dis;
+		bluedef.GetComponent<Image>().color = p1def ? enb : dis;
+		bluefei.GetComponent<Image>().color = p1fei ? enb : dis;
+		redatk.GetComponent<Image>().color  = p2atk ? enb : dis;
+		reddef.GetComponent<Image>().color  = p2def ? enb : dis;
+		redfei.GetComponent<Image>().color  = p2fei ? enb : dis;
+
 		if(playerActionsIndexForChoosing == 0 && !roundIsPlaying){
 			//Debug.Log("INICIANDO ROUND 1");
 			if(!player1ActionsChosen[0]){

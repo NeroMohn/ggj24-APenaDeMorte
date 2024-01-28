@@ -43,8 +43,8 @@ public class ImageClick : MonoBehaviour, IPointerClickHandler
 			img01.GetComponent<Image>().color = Color.Lerp(imgColor01, imgColor02, timer / 1.5f);
 			text02.GetComponent<TMPro.TextMeshProUGUI>().color = textColor01;
 			img02.GetComponent<Image>().color = imgColor01;
-			text01.transform.localPosition = new Vector3(-200.0f + timer * 100.0f / 1.5f, 1, 0);
-			img01.transform.localPosition = new Vector3(100.0f - timer * 100.0f / 1.5f, 1, 0);
+			text01.transform.localPosition = new Vector3(-300.0f + timer * 100.0f / 1.5f, 0, 0);
+			img01.transform.localPosition = new Vector3(400.0f - timer * 100.0f / 1.5f, -120, 0);
 			if (timer > 1.5f)
 			{
 				state++;
@@ -57,8 +57,8 @@ public class ImageClick : MonoBehaviour, IPointerClickHandler
 			img01.GetComponent<Image>().color = imgColor01;
 			text02.GetComponent<TMPro.TextMeshProUGUI>().color = Color.Lerp(textColor01, textColor02, timer / 1.5f);
 			img02.GetComponent<Image>().color = Color.Lerp(imgColor01, imgColor02, timer / 1.5f);
-			text02.transform.localPosition = new Vector3(-100.0f, 100.0f - timer * 100.0f / 1.5f, 0);
-			img02.transform.localPosition = new Vector3(0, -100.0f + timer * 100.0f / 1.5f, 0);
+			text02.transform.localPosition = new Vector3(200, 172.0f - timer * 100.0f / 1.5f, 0);
+			img02.transform.localPosition = new Vector3(-300, -100.0f + timer * 100.0f / 1.5f, 0);
 			if (timer > 1.5f)
 			{
 				state++;
@@ -73,6 +73,8 @@ public class ImageClick : MonoBehaviour, IPointerClickHandler
 				img01.GetComponent<Image>().color = imgColor02;
 				text02.GetComponent<TMPro.TextMeshProUGUI>().color = textColor01;
 				img02.GetComponent<Image>().color = imgColor01;
+				text01.transform.localPosition = new Vector3(-200, 0, 0);
+				img01.transform.localPosition = new Vector3(300, -120, 0);
 			}
 			else
 			{
@@ -80,6 +82,8 @@ public class ImageClick : MonoBehaviour, IPointerClickHandler
 				img01.GetComponent<Image>().color = imgColor01;
 				text02.GetComponent<TMPro.TextMeshProUGUI>().color = textColor02;
 				img02.GetComponent<Image>().color = imgColor02;
+				text02.transform.localPosition = new Vector3(200, 72, 0);
+				img02.transform.localPosition = new Vector3(-300, 0, 0);
 			}
 			if (timer > 6.0f)
 			{

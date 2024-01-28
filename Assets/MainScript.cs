@@ -4,25 +4,13 @@ using UnityEngine;
 
 public class MainScript : MonoBehaviour
 {
-	// Start is called before the first frame update
+	private int l;
+
 	void Start()
 	{
-		
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-		
-	}
-
-	public void skipCutscene()
-	{
-		Debug.Log("cutscene");
 	}
 
 	public void toggleLanguage()
 	{
-		Debug.Log("language");
 	}
 }
