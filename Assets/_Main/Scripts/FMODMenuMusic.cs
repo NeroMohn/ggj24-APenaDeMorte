@@ -9,8 +9,8 @@ public class FMODMenuMusic : MonoBehaviour
     void Start()
     {
         _music = FMODUnity.RuntimeManager.CreateInstance("event:/MainMenuTheme");
-        _music.start();
         _music.setVolume(0.4f);
+        _music.start();
         _music.release();
     }
 
