@@ -21,12 +21,14 @@ public class SceneUIControl : MonoBehaviour
 
 	public void PvP()
 	{
-		SceneManager.LoadScene("GambiarraPvP");
+        FMODMenuMusic.ExitMainMenu();
+        SceneManager.LoadScene("GambiarraPvP");
 	}
 
 	public void PvE()
 	{
-		SceneManager.LoadScene("GambiarraPvE");
+		FMODMenuMusic.ExitMainMenu();
+        SceneManager.LoadScene("GambiarraPvE");
 	}
 
 	public void Rematch()
