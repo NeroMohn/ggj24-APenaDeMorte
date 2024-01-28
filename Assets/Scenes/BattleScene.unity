@@ -181,7 +181,10 @@ MonoBehaviour:
   roundsPlayed: 000000
   player2HP: 5
   player1HP: 5
-  animtimer: 1.5
+  tickleTimer: 1.5
+  endingTimer: 1.5
+  tickleSoundIsPlaying: 0
+  laughIsPlaying: 0
 --- !u!4 &275283147
 Transform:
   m_ObjectHideFlags: 0

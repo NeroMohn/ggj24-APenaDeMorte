@@ -27,8 +27,9 @@ public class GameManagerScript : MonoBehaviour
 	[SerializeField]private int player2HP = 5;
 	[SerializeField]private int player1HP = 5;
 	public float tickleTimer = 1.5f;
-	public float endingTimer = 2.5f;
+	private float endingTimer = 0.5f;
 	public bool tickleSoundIsPlaying = false;
+	public bool laughIsPlaying = false;
 
     private FMODSFX _sfxHandler = new FMODSFX();
 
@@ -75,6 +76,21 @@ public class GameManagerScript : MonoBehaviour
 	}
 
 	void GameLoopSinglePlayer(){
+		if(player1HP <=0){
+			if(endingTimer <= 0 && !laughIsPlaying){
+				_sfxHandler.PlayFemaleLaugh();
+				laughIsPlaying = true;
+			}
+			endingTimer -= Time.deltaTime;
+			return;
+		}
+		else if(player2HP <=0 && !laughIsPlaying){
+			if(endingTimer <= 0){
+				_sfxHandler.PlayMaleLaught();
+				laughIsPlaying = true;
+			}
+			endingTimer -= Time.deltaTime;
+		}
 		if(playerActionsIndexForChoosing == 0 && !roundIsPlaying){
 			//Debug.Log("INICIANDO ROUND 1");
 			if(!player1ActionsChosen[0]){
@@ -156,15 +172,17 @@ public class GameManagerScript : MonoBehaviour
 			return;
 		}*/
 		if(player1HP <=0){
-			if(endingTimer <= 0){
-				_sfxHandler.PlayMaleLaught();
+			if(endingTimer <= 0 && !laughIsPlaying){
+				_sfxHandler.PlayFemaleLaugh();
+				laughIsPlaying = true;
 			}
 			endingTimer -= Time.deltaTime;
 			return;
 		}
-		else if(player2HP <=0){
+		else if(player2HP <=0 && !laughIsPlaying){
 			if(endingTimer <= 0){
-				_sfxHandler.PlayFemaleLaugh();
+				_sfxHandler.PlayMaleLaught();
+				laughIsPlaying = true;
 			}
 			endingTimer -= Time.deltaTime;
 		}
@@ -397,7 +415,7 @@ public class GameManagerScript : MonoBehaviour
 				case "ATTACK":
 				roundWinner = "DRAW";
 				animationToBePlayed = "Attack vs Attack";
-				_sfxHandler.PlayDraw();
+				//_sfxHandler.PlayDraw();
 				break;
 
 				case "DEFEND":
@@ -429,7 +447,7 @@ public class GameManagerScript : MonoBehaviour
 				case "DEFEND":
 				roundWinner = "DRAW";
 				animationToBePlayed = "Block vs Block";
-                _sfxHandler.PlayDraw();
+                //_sfxHandler.PlayDraw();
                 break;
 
 				case "FEINT":
@@ -478,8 +496,14 @@ public class GameManagerScript : MonoBehaviour
 			return;
 		}
 		animtimer-= Time.deltaTime;*/
-		if(tickleTimer <=0 && roundWinner != "DRAW" && !tickleSoundIsPlaying){
-			_sfxHandler.PlayAttack();
+		if(tickleTimer <=0 && !tickleSoundIsPlaying){
+			if(roundWinner == "DRAW"){
+				_sfxHandler.PlayDraw();
+			}
+			else{
+				_sfxHandler.PlayAttack();
+			}
+			//_sfxHandler.PlayAttack();
 			tickleSoundIsPlaying = true;
 		}
 		tickleTimer -= Time.deltaTime;
