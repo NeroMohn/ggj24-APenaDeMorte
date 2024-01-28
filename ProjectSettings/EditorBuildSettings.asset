@@ -6,6 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 8f17162cafeba7241adc5b3a5a8ffff9
+  - enabled: 1
+    path: Assets/Scenes/TitleScene.unity
+    guid: 76848ca2eabff7b449b8322f0d243599
+  - enabled: 1
+    path: Assets/Scenes/GambiarraPvP.unity
+    guid: b94a1f3261ef06c44b1f2d9c54527bcd
+  - enabled: 1
+    path: Assets/Scenes/GambiarraPvE.unity
+    guid: f7d34f22c4635f34f92690dd2ba1c217
+  - enabled: 1
     path: Assets/Scenes/BattleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Rematch.unity
+    guid: 02b08110ab6ab634d932c4a88a7c647b
+  - enabled: 1
+    path: Assets/Scenes/temp.unity
+    guid: 172802c7117a4dd42bfb00deedee9c41
   m_configObjects: {}
