@@ -33,10 +33,14 @@ public class GameManagerScript : MonoBehaviour
         characters = GameObject.Find("Characters");
         charactersAnimator = characters.GetComponent<Animator>();
         if(!multiplayer){
+            Debug.Log("PARTIDA SINGLE PLAYER");
             actionsDictionary.Add(0, "ATTACK");
             actionsDictionary.Add(1, "DEFEND");
             actionsDictionary.Add(2, "FEINT");
             EnemyActionRandomizer();
+        }
+        else{
+            Debug.Log("PARTIDA MULTIPLAYER");
         }
         
     }
@@ -62,13 +66,17 @@ public class GameManagerScript : MonoBehaviour
     }
 
     void GameLoopSinglePlayer(){
-        if(playerActionsIndexForChoosing == 0){
-            if(Player1ChooseActions()){
+        if(playerActionsIndexForChoosing == 0 && !roundIsPlaying){
+            //Debug.Log("INICIANDO ROUND 1");
+            if(!player1ActionsChosen[0]){
+                if(Player1ChooseActions()){
                 player1ActionsChosen[0] = true;
+                }
             }
             
+            
         }
-        if(!roundsPlayed[0] && Input.GetKeyDown("space") && player1ActionsChosen[0] && playerActionsIndexForChoosing == 0){
+        if(!roundsPlayed[0]  && player1ActionsChosen[0] && playerActionsIndexForChoosing == 0){
             prohibitedActionsPlayer1[0] = player1Actions[0];
             playerActionsIndexForChoosing ++;
             CheckWhoWins(0);
@@ -77,12 +85,16 @@ public class GameManagerScript : MonoBehaviour
             
             
         }
-        if(playerActionsIndexForChoosing == 1){
-            if(Player1ChooseActions()){
+        if(playerActionsIndexForChoosing == 1 && !roundIsPlaying){
+            //Debug.Log("INICIANDO ROUND 2");
+            if(!player1ActionsChosen[1]){
+                if(Player1ChooseActions()){
                 player1ActionsChosen[1] = true;
+                }
             }
+            
         }
-        if(!roundsPlayed[1] && Input.GetKeyDown("space") && player1ActionsChosen[1] && playerActionsIndexForChoosing == 1){
+        if(!roundsPlayed[1] && player1ActionsChosen[1] && playerActionsIndexForChoosing == 1){
             prohibitedActionsPlayer1[1] = player1Actions[1];
             playerActionsIndexForChoosing ++;
             CheckWhoWins(1);
@@ -91,12 +103,16 @@ public class GameManagerScript : MonoBehaviour
             
             
         }
-        if(playerActionsIndexForChoosing == 2){
-            if(Player1ChooseActions()){
+        if(playerActionsIndexForChoosing == 2 && !roundIsPlaying){
+            //Debug.Log("INICIANDO ROUND 3");
+            if(!player1ActionsChosen[2]){
+                if(Player1ChooseActions()){
                 player1ActionsChosen[2] = true;
+                }
             }
+            
         }
-        if(!roundsPlayed[2] && Input.GetKeyDown("space") && player1ActionsChosen[2]){
+        if(!roundsPlayed[2]  && player1ActionsChosen[2]){
             prohibitedActionsPlayer1[2] = player1Actions[2];
             playerActionsIndexForChoosing ++;
             CheckWhoWins(2);
@@ -124,15 +140,22 @@ public class GameManagerScript : MonoBehaviour
 
     void GameLoopMultiplayer(){
         if(playerActionsIndexForChoosing == 0 && !roundIsPlaying){
-            if(Player1ChooseActions()){
+            //Debug.Log("INICIANDO ROUND 1");
+            if(!player1ActionsChosen[0]){
+                if(Player1ChooseActions()){
                 player1ActionsChosen[0] = true;
+                }
             }
-            if(Player2ChooseActions()){
+
+            if(!player2ActionsChosen[0]){
+                if(Player2ChooseActions()){
                 player2ActionsChosen[0] = true;
+                }
             }
             
+            
         }
-        if(!roundsPlayed[0] && Input.GetKeyDown("space") && player1ActionsChosen[0] && player2ActionsChosen[0] && playerActionsIndexForChoosing == 0){
+        if(!roundsPlayed[0]  && player1ActionsChosen[0] && player2ActionsChosen[0] && playerActionsIndexForChoosing == 0){
             prohibitedActionsPlayer1[0] = player1Actions[0];
             prohibitedActionsPlayer2[0] = player2Actions[0];
             playerActionsIndexForChoosing ++;
@@ -142,15 +165,22 @@ public class GameManagerScript : MonoBehaviour
             
             
         }
-        if(playerActionsIndexForChoosing == 1){
-            if(Player1ChooseActions()){
+        if(playerActionsIndexForChoosing == 1 && !roundIsPlaying){
+            //Debug.Log("INICIANDO ROUND 2");
+            if(!player1ActionsChosen[1]){
+                if(Player1ChooseActions()){
                 player1ActionsChosen[1] = true;
+                }
             }
-            if(Player2ChooseActions()){
+            
+            if(!player2ActionsChosen[1]){
+                if(Player2ChooseActions()){
                 player2ActionsChosen[1] = true;
+                }
             }
+            
         }
-        if(!roundsPlayed[1] && Input.GetKeyDown("space") && player1ActionsChosen[1] && player2ActionsChosen[1] && playerActionsIndexForChoosing == 1){
+        if(!roundsPlayed[1]  && player1ActionsChosen[1] && player2ActionsChosen[1] && playerActionsIndexForChoosing == 1){
             prohibitedActionsPlayer1[1] = player1Actions[1];
             prohibitedActionsPlayer2[1] = player2Actions[1];
             playerActionsIndexForChoosing ++;
@@ -160,15 +190,22 @@ public class GameManagerScript : MonoBehaviour
             
             
         }
-        if(playerActionsIndexForChoosing == 2){
-            if(Player1ChooseActions()){
+        if(playerActionsIndexForChoosing == 2 && !roundIsPlaying){
+            //Debug.Log("INICIANDO ROUND 3");
+            if(!player1ActionsChosen[2]){
+                if(Player1ChooseActions()){
                 player1ActionsChosen[2] = true;
+                }
             }
-            if(Player2ChooseActions()){
+            
+            if(!player2ActionsChosen[2]){
+                if(Player2ChooseActions()){
                 player2ActionsChosen[2] = true;
+                }
             }
+            
         }
-        if(!roundsPlayed[2] && Input.GetKeyDown("space") && player1ActionsChosen[2] && player2ActionsChosen[2]){
+        if(!roundsPlayed[2]  && player1ActionsChosen[2] && player2ActionsChosen[2]){
             prohibitedActionsPlayer1[2] = player1Actions[2];
             playerActionsIndexForChoosing ++;
             CheckWhoWins(2);
@@ -202,6 +239,7 @@ public class GameManagerScript : MonoBehaviour
     }
 
     void EnemyActionRandomizer(){
+        Debug.Log("SORTEANDO AÇÕES DO COMPUTADOR");
         int randomEnemyActionValue;
         randomEnemyActionValue = Random.Range(0,3);
         firstEnemyAction = randomEnemyActionValue;
@@ -221,7 +259,7 @@ public class GameManagerScript : MonoBehaviour
         player2Actions[2] = actionsDictionary[thirdEnemyAction];
 
         for(int i = 0; i<3; i++){
-            Debug.Log(player2Actions[i]);
+            Debug.Log("AÇÃO"+ i+ "DO COMPUTADOR:" + player2Actions[i]);
         }
     }
 
@@ -229,39 +267,39 @@ public class GameManagerScript : MonoBehaviour
         if(Input.GetKeyDown("1")){
             for(int i =0; i<3; i++){
                     if(prohibitedActionsPlayer1[i] == "ATTACK"){
-                        Debug.Log("AÇÃO JÁ USADA PREVIAMENTE");
+                        Debug.Log("AÇÃO JÁ USADA PREVIAMENTE PELO PLAYER 1");
                         return false;
                     }
             }
             player1Actions[playerActionsIndexForChoosing] = "ATTACK";
             //prohibitedActions[playerActionsIndexForChoosing] = "ATTACK";
-            Debug.Log("AÇÃO ESCOLHIDA: ATAQUE");
+            Debug.Log("AÇÃO ESCOLHIDA PELO PLAYER 1: ATAQUE");
             //playerActionsIndexForChoosing ++;
             return true;
         }
         else if(Input.GetKeyDown("2")){
             for(int i =0; i<3; i++){
                     if(prohibitedActionsPlayer1[i] == "DEFEND"){
-                        Debug.Log("AÇÃO JÁ USADA PREVIAMENTE");
+                        Debug.Log("AÇÃO JÁ USADA PREVIAMENTE PELO PLAYER 1");
                         return false;
                     }
             }
             player1Actions[playerActionsIndexForChoosing] = "DEFEND";
             //prohibitedActions[playerActionsIndexForChoosing] = "DEFEND";
-            Debug.Log("AÇÃO ESCOLHIDA: DEFESA");
+            Debug.Log("AÇÃO ESCOLHIDA PELO PLAYER 1: DEFESA");
             //playerActionsIndexForChoosing ++;
             return  true;
         }
         else if(Input.GetKeyDown("3")){
             for(int i =0; i<3; i++){
                     if(prohibitedActionsPlayer1[i] == "FEINT"){
-                        Debug.Log("AÇÃO JÁ USADA PREVIAMENTE");
+                        Debug.Log("AÇÃO JÁ USADA PREVIAMENTE PELO PLAYER 1");
                         return false;
                     }
             }
             player1Actions[playerActionsIndexForChoosing] = "FEINT";
             //prohibitedActions[playerActionsIndexForChoosing] = "FEINT";
-            Debug.Log("AÇÃO ESCOLHIDA: FINTA");
+            Debug.Log("AÇÃO ESCOLHIDA PELO PLAYER 1: FINTA");
             //playerActionsIndexForChoosing ++;
             return true;
         }
@@ -272,39 +310,39 @@ public class GameManagerScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Keypad1)){
             for(int i =0; i<3; i++){
                     if(prohibitedActionsPlayer2[i] == "ATTACK"){
-                        Debug.Log("AÇÃO JÁ USADA PREVIAMENTE");
+                        Debug.Log("AÇÃO JÁ USADA PREVIAMENTE PELO PLAYER 2");
                         return false;
                     }
             }
             player2Actions[playerActionsIndexForChoosing] = "ATTACK";
             //prohibitedActions[playerActionsIndexForChoosing] = "ATTACK";
-            Debug.Log("AÇÃO ESCOLHIDA: ATAQUE");
+            Debug.Log("AÇÃO ESCOLHIDA PELO PLAYER 2: ATAQUE");
             //playerActionsIndexForChoosing ++;
             return true;
         }
         else if(Input.GetKeyDown(KeyCode.Keypad2)){
             for(int i =0; i<3; i++){
                     if(prohibitedActionsPlayer2[i] == "DEFEND"){
-                        Debug.Log("AÇÃO JÁ USADA PREVIAMENTE");
+                        Debug.Log("AÇÃO JÁ USADA PREVIAMENTE PELO PLAYER 2");
                         return false;
                     }
             }
             player2Actions[playerActionsIndexForChoosing] = "DEFEND";
             //prohibitedActions[playerActionsIndexForChoosing] = "DEFEND";
-            Debug.Log("AÇÃO ESCOLHIDA: DEFESA");
+            Debug.Log("AÇÃO ESCOLHIDA PELO PLAYER 2: DEFESA");
             //playerActionsIndexForChoosing ++;
             return  true;
         }
         else if(Input.GetKeyDown(KeyCode.Keypad3)){
             for(int i =0; i<3; i++){
                     if(prohibitedActionsPlayer2[i] == "FEINT"){
-                        Debug.Log("AÇÃO JÁ USADA PREVIAMENTE");
+                        Debug.Log("AÇÃO JÁ USADA PREVIAMENTE PELO PLAYER 2");
                         return false;
                     }
             }
             player2Actions[playerActionsIndexForChoosing] = "FEINT";
             //prohibitedActions[playerActionsIndexForChoosing] = "FEINT";
-            Debug.Log("AÇÃO ESCOLHIDA: FINTA");
+            Debug.Log("AÇÃO ESCOLHIDA PELO PLAYER 2: FINTA");
             //playerActionsIndexForChoosing ++;
             return true;
         }
@@ -312,7 +350,7 @@ public class GameManagerScript : MonoBehaviour
     }
 
     void CheckWhoWins(int actionsIndex){
-        Debug.Log(actionsIndex);
+        //Debug.Log(actionsIndex);
         string player1Action = player1Actions[actionsIndex];
         string player2Action = player2Actions[actionsIndex];
         switch (player1Action)
@@ -386,7 +424,7 @@ public class GameManagerScript : MonoBehaviour
 
         }
 
-        Debug.Log(roundWinner);
+        Debug.Log("VENCEDOR DA RODADA: " + roundWinner);
     }  
 
     void PlayAnim(){
@@ -399,9 +437,10 @@ public class GameManagerScript : MonoBehaviour
         charactersAnimator.Play(animationToBePlayed);
         //Debug.Log(charactersAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
         if (charactersAnimator.GetCurrentAnimatorStateInfo(0).IsName(animationToBePlayed) && charactersAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1){
-                roundIsPlaying = false;
-                animationToBePlayed = "Idle";
-                charactersAnimator.Play(animationToBePlayed);
+            Debug.Log("VOLTANDO AO ESTADO IDLE");
+            roundIsPlaying = false;
+            animationToBePlayed = "Idle";
+            charactersAnimator.Play(animationToBePlayed);
             }
 
     }
