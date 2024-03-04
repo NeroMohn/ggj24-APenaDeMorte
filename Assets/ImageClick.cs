@@ -85,7 +85,7 @@ public class ImageClick : MonoBehaviour, IPointerClickHandler
 				text02.transform.localPosition = new Vector3(200, 72, 0);
 				img02.transform.localPosition = new Vector3(-300, 0, 0);
 			}
-			if (timer > 6.0f)
+			if (timer > 20.0f)
 			{
 				state++;
 				timer = 0.0f;
