@@ -63,6 +63,7 @@ public class GameManagerScript : MonoBehaviour
 	private bool p2fei;
 	public float tickleTimer = 1.5f;
 	private float endingTimer = 0.5f;
+	private float sceneEndingTimer = 4f;
 	public bool tickleSoundIsPlaying = false;
 	public bool laughIsPlaying = false;
 
@@ -102,27 +103,6 @@ public class GameManagerScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (player2HP <= 0 || player1HP <= 0)
-		{
-			if (!gameOverFlag)
-				SceneManager.LoadScene("TitleScene");//"Rematch", LoadSceneMode.Additive);
-			gameOverFlag = true;
-			if(player1HP <=0){
-				if(endingTimer <= 0 && !laughIsPlaying){
-					_sfxHandler.PlayFemaleLaugh();
-					laughIsPlaying = true;
-				}
-				endingTimer -= Time.deltaTime;
-			}
-			else if(player2HP <=0){
-				if(endingTimer <= 0 && !laughIsPlaying){
-					_sfxHandler.PlayMaleLaught();
-					laughIsPlaying = true;
-				}
-				endingTimer -= Time.deltaTime;
-			}
-			return;
-		}
 		switch (player1HP)
 		{
 			case 0:  bluehp.GetComponent<Image>().sprite = b5; break;
@@ -168,6 +148,30 @@ public class GameManagerScript : MonoBehaviour
 		redatk.GetComponent<Image>().color  = p2atk ? enb : dis;
 		reddef.GetComponent<Image>().color  = p2def ? enb : dis;
 		redfei.GetComponent<Image>().color  = p2fei ? enb : dis;
+
+		if (player2HP <= 0 || player1HP <= 0)
+		{
+			if (sceneEndingTimer <= 0)
+				SceneManager.LoadScene("TitleScene");//"Rematch", LoadSceneMode.Additive);
+			gameOverFlag = true;
+			if(player1HP <=0){
+				if(endingTimer <= 0 && !laughIsPlaying){
+					_sfxHandler.PlayFemaleLaugh();
+					laughIsPlaying = true;
+				}
+				endingTimer -= Time.deltaTime;
+				sceneEndingTimer -= Time.deltaTime;
+			}
+			else if(player2HP <=0){
+				if(endingTimer <= 0 && !laughIsPlaying){
+					_sfxHandler.PlayMaleLaught();
+					laughIsPlaying = true;
+				}
+				endingTimer -= Time.deltaTime;
+				sceneEndingTimer -= Time.deltaTime;
+			}
+			return;
+		}
 
 		if(!roundIsPlaying && !multiplayer){
 			GameLoopSinglePlayer();

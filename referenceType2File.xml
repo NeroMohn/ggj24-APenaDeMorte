@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTypeDate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TypeDate>
+    <guid>9c13d4e62f5f7b44bb33162cbf29a9f8</guid>
+    <fileName>Assets/Plugins/FMOD/src/AutomatableSlots.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1207369-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>a8ab5f38e7776644297d8b3687c39b49</guid>
+    <fileName>Assets/Plugins/FMOD/src/BankRefAttribute.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1216482-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>a28d1e1a42561ed4f8d44293dab99079</guid>
+    <fileName>Assets/Plugins/FMOD/src/EventHandler.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1385328-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>1b29a1189268c3b47aa2ec4b96a9e7ef</guid>
+    <fileName>Assets/Plugins/FMOD/src/EventRefAttribute.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1400361-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>1b1e4da3fb15e7a45a8f104b7d0fd6d9</guid>
+    <fileName>Assets/Plugins/FMOD/src/EventReference.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1400361-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>bd0d0c955caff8940ac1667ee36dd4c9</guid>
+    <fileName>Assets/Plugins/FMOD/src/fmod.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1515842-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>987a467495df9d942b56b1b51381d095</guid>
+    <fileName>Assets/Plugins/FMOD/src/FMODEventPlayable.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1410398-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>133253f56854570409c222a87786b263</guid>
+    <fileName>Assets/Plugins/FMOD/src/FMODEventTrack.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1410398-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>4417faacebce0de4fbde25ec23055cf4</guid>
+    <fileName>Assets/Plugins/FMOD/src/FMODRuntimeManagerOnGUIHelper.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1410398-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>b7b10c26cf550794183b926ffae615a7</guid>
+    <fileName>Assets/Plugins/FMOD/src/fmod_dsp.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1515842-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>6e0992509b0077e479d2da05c8f52eb0</guid>
+    <fileName>Assets/Plugins/FMOD/src/fmod_errors.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1525743-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>ae7eb0b6a2bff364b9c1fae52173e74c</guid>
+    <fileName>Assets/Plugins/FMOD/src/fmod_studio.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1535739-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>00e1a9817a5d9844796d7c313b1ab197</guid>
+    <fileName>Assets/Plugins/FMOD/src/ParamRef.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1420403-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>7ae6224668d1647429723f89e10d593f</guid>
+    <fileName>Assets/Plugins/FMOD/src/ParamRefAttribute.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1420403-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>e7df340ba8041134888b271ea2124fcd</guid>
+    <fileName>Assets/Plugins/FMOD/src/Platform.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1430405-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>9587379c972e4a54da1949613f11e1c6</guid>
+    <fileName>Assets/Plugins/FMOD/src/PlatformDefault.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1440409-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>6d049eb0281db9c4abd635ba1c79cb7b</guid>
+    <fileName>Assets/Plugins/FMOD/src/PlatformGroup.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1440409-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>93a382382f106584e8f8f62412fee177</guid>
+    <fileName>Assets/Plugins/FMOD/src/PlatformMobileHigh.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1450398-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>3abeb1429547a134480f4f2f1efc7e21</guid>
+    <fileName>Assets/Plugins/FMOD/src/PlatformMobileLow.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1450398-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>335f0a4b26fb46942858ea029e030d2a</guid>
+    <fileName>Assets/Plugins/FMOD/src/PlatformPlayInEditor.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1460641-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>5e5fb8ce07f0ce84b9d1852869527ea5</guid>
+    <fileName>Assets/Plugins/FMOD/src/RuntimeManager.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1460641-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>6e349601408e423499e7b9f75216091d</guid>
+    <fileName>Assets/Plugins/FMOD/src/RuntimeUtils.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.147064-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>eef8d824ea7b63742966aaa0e94ac383</guid>
+    <fileName>Assets/Plugins/FMOD/src/Settings.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1480653-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>b9468c5f457ace64f8d4df6d642b107f</guid>
+    <fileName>Assets/Plugins/FMOD/src/StudioBankLoader.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1480653-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>9a6610d2e704f1648819acc8d7460285</guid>
+    <fileName>Assets/Plugins/FMOD/src/StudioEventEmitter.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1490632-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>9b0e04e2572f9a940a47465f6f3c2f00</guid>
+    <fileName>Assets/Plugins/FMOD/src/StudioGlobalParameterTrigger.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1490632-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>86c6556701af9e04380698b89f691b6e</guid>
+    <fileName>Assets/Plugins/FMOD/src/StudioListener.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1500639-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>744a208c85da6d04c861d81b992e4ead</guid>
+    <fileName>Assets/Plugins/FMOD/src/StudioParameterTrigger.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1505702-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>8054a733c0d8eb242a87c932eb8681a9</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/AssetCollector.cs</fileName>
+    <timeStamp>2022-12-14T00:37:41-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>a050ef5aab8374e419bd6a164d74e502</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/AssetReferenceCollection.cs</fileName>
+    <timeStamp>2022-12-14T00:37:41-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>852bd847297664147ba2a26ce9af9765</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/ClassReferenceCollection.cs</fileName>
+    <timeStamp>2022-12-14T00:37:41-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>0a47bce0d332bec4f81ce1b3d8a18dcc</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/CollectionData.cs</fileName>
+    <timeStamp>2022-12-14T00:37:41-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>786a2a9f3a06f1b46ba3491eb79e8b02</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/FindUnusedAssetsWindow.cs</fileName>
+    <timeStamp>2022-12-14T00:37:41-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>bd7a46d504e2d8a4a961d30076c18680</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/ShaderReferenceCollection.cs</fileName>
+    <timeStamp>2022-12-14T00:37:41-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>49ebe6fea5e4bfc4bb492bba062b2afe</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/BankRefDrawer.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1216482-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>e564c074e96205b49b91ff80126983c5</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/BankRefresher.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1236479-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>40a1ca322d08d704eacd449863718b31</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/BankRefreshWindow.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.122648-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>f876942dd549ef444a82ab923e75ccb1</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/BoltIntegration.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1236479-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>438155f6a2d689e45b5cc7701d412b80</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/CodeGeneration.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1236479-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>9c9773a32ed4a2b429fd42645175c32b</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/CreateEventPopup.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1246475-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>c18180ecb35941f4682ae60107b85b7c</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/EditorBankRef.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1246475-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>ceb653cd98e289a4e8697a1af55201f2</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/EditorEventRef.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1256476-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>fecb8ef7f94ca804a8ab72049b86782e</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/EditorParamRef.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1256476-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>3c9e3e2137498d343a2e31906a12dec2</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/EditorSettings.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1266857-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>2bb4068641d1f71478f95a9b73533f51</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/EditorUtils.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1276856-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>5332ad2baabb58844975479e906001c8</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/EventBrowser.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1276856-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>d32cf7c32a3ed8347bac48ef5ed56d82</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/EventCache.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1286861-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>1fc38201a5edb994c874a4a61e96053b</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/EventManager.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1286861-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>29a86a77bf7568e499243d9b47b7e88e</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/EventRefDrawer.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1286861-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>0b58df65bd3bb6649801b24a7a942ccb</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/EventReferenceUpdater.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1301906-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>3349615af02d64e4e8d1026e228c4a25</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/FileReorganizer.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.132194-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>a3d0ed60438564241a4e62b152836893</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/FindAndReplace.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1331941-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>fa325be8441506c4bb1462c8333ccce9</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/FMODEventPlayableEditor.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1311947-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>31e1c5e7d70e58f45ae86764f7c3ec2f</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/FMODEventTrackEditor.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1311947-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>1573bef36bd46e34f8f2b4dad628a461</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/ListView.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1331941-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>ea88808aa26cd614db1c5c1dcbb14d4e</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/ParamRefDrawer.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1341948-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>353a9c870c318f74fa5fdcd475129bae</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/SettingsEditor.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.135195-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>aa9a0c70fef01fb43b8eff668bfa0e9c</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/SetupWizard.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.135195-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>f7f61e03a350e1e428dba6c562f3d64a</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/StudioBankLoaderEditor.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1365322-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>2b044fd4ebf2c42468e1f41d5e2b879c</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/StudioEventEmitterEditor.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1365322-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>f09ba26caab55e048a2e596ff75b3eab</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/StudioEventEmitterGizmoDrawer.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1375327-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>0a901681b5558f247b4c227fb425c010</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/StudioGlobalParameterTriggerEditor.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1375327-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>847f8505c25f5cf42adba68a26f2cda6</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/StudioListenerEditor.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1385328-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>dc94d213814ef1a42b0ca8ee00dd4728</guid>
+    <fileName>Assets/Plugins/FMOD/src/Editor/StudioParameterTriggerEditor.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1385328-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>935c6716e27bd481e97897dd9e1de595</guid>
+    <fileName>Assets/Plugins/FMOD/addons/ResonanceAudio/Editor/FmodResonanceAudioRoomEditor.cs</fileName>
+    <timeStamp>2024-01-28T04:25:34.0280329-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>6794e6301575a445d8588930a0752568</guid>
+    <fileName>Assets/Plugins/FMOD/addons/ResonanceAudio/Scripts/FmodResonanceAudio.cs</fileName>
+    <timeStamp>2024-01-28T04:25:34.0290353-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>6b0c5e63920ee4f55b7ec5248525af4b</guid>
+    <fileName>Assets/Plugins/FMOD/addons/ResonanceAudio/Scripts/FmodResonanceAudioRoom.cs</fileName>
+    <timeStamp>2024-01-28T04:25:34.0300877-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>97ba6cc2660c0ca498540d254701057a</guid>
+    <fileName>Assets/Plugins/FMOD/platforms/android/src/PlatformAndroid.cs</fileName>
+    <timeStamp>2024-01-28T04:25:34.2035581-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>b87314b32fbe18943af496e4b47136c6</guid>
+    <fileName>Assets/Plugins/FMOD/platforms/html5/src/PlatformWebGL.cs</fileName>
+    <timeStamp>2024-01-28T04:25:34.4122326-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>bc1f51bc35d549941904cf062bae93a3</guid>
+    <fileName>Assets/Plugins/FMOD/platforms/ios/src/PlatformIOS.cs</fileName>
+    <timeStamp>2024-01-28T04:25:34.6576196-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>73549a74f689f0849a8271d9e908c514</guid>
+    <fileName>Assets/Plugins/FMOD/platforms/linux/src/PlatformLinux.cs</fileName>
+    <timeStamp>2024-01-28T04:25:34.7067726-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>d92d0baf34dae0e4ea032a42bd6107c0</guid>
+    <fileName>Assets/Plugins/FMOD/platforms/mac/src/PlatformMac.cs</fileName>
+    <timeStamp>2024-01-28T04:25:34.7855491-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>17eea195bdfbf014e91ba7620ee491f8</guid>
+    <fileName>Assets/Plugins/FMOD/platforms/tvos/src/PlatformAppleTV.cs</fileName>
+    <timeStamp>2024-01-28T04:25:34.9222261-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>9660e62d6232af242877f0cc2b90c63d</guid>
+    <fileName>Assets/Plugins/FMOD/platforms/win/src/PlatformWindows.cs</fileName>
+    <timeStamp>2024-01-28T04:25:35.1191382-03:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>d11248d8101bc32449ff1a5ae42e1179</guid>
+    <fileName>Assets/GameManagerScript.cs</fileName>
+    <timeStamp>2024-01-28T19:28:41.6421272-03:00</timeStamp>
+    <typeFullName>
+      <string>GameManagerScript</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f375fcfb685db284fb2f0f9d6a9628da</guid>
+    <fileName>Assets/ImageClick.cs</fileName>
+    <timeStamp>2024-01-28T15:46:18.3957949-03:00</timeStamp>
+    <typeFullName>
+      <string>ImageClick</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>09ebe7b1b861ea7448a5dd97cdb4c375</guid>
+    <fileName>Assets/MainScript.cs</fileName>
+    <timeStamp>2024-01-28T16:27:19.090691-03:00</timeStamp>
+    <typeFullName>
+      <string>MainScript</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>8458a388220295947a47502d2d866e6f</guid>
+    <fileName>Assets/SceneUIControl.cs</fileName>
+    <timeStamp>2024-01-28T19:15:05.4793975-03:00</timeStamp>
+    <typeFullName>
+      <string>SceneUIControl</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d033ce726998b2941aa0366b23d65c51</guid>
+    <fileName>Assets/StartBattle.cs</fileName>
+    <timeStamp>2024-01-28T13:00:14.6859089-03:00</timeStamp>
+    <typeFullName>
+      <string>StartBattle</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f8a7c91024f9a5242ba93f18308d4aaa</guid>
+    <fileName>Assets/temp.cs</fileName>
+    <timeStamp>2024-01-28T02:06:09.8852259-03:00</timeStamp>
+    <typeFullName>
+      <string>temp</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9b261b6e1331463409579899e5eaf119</guid>
+    <fileName>Assets/_Main/Scripts/FMODMenuMusic.cs</fileName>
+    <timeStamp>2024-01-28T19:19:03.5613408-03:00</timeStamp>
+    <typeFullName>
+      <string>FMODMenuMusic</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9c11f19907235b34d920b6331aabbda6</guid>
+    <fileName>Assets/_Main/Scripts/FMODMusic.cs</fileName>
+    <timeStamp>2024-01-28T19:19:03.5649151-03:00</timeStamp>
+    <typeFullName>
+      <string>Music</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b0322776bdfe7b940b220b15231448ae</guid>
+    <fileName>Assets/_Main/Scripts/FMODSFX.cs</fileName>
+    <timeStamp>2024-01-28T19:19:03.568935-03:00</timeStamp>
+    <typeFullName>
+      <string>FMODSFX</string>
+      <string>FMODSFX+SfxMap</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+</ArrayOfTypeDate>
